@@ -22,16 +22,6 @@ class LinkViewSet(viewsets.ModelViewSet):
             return [AllowAny()]
         return [IsAdminUser()]
 
-    # def retrieve(self, request, key=None):
-    #     try:
-    #         shortened_url = Link.objects.get(key=key)
-    #     except Link.DoesNotExist:
-    #         return Response({'detail': 'Shortened URL not found.'}, status=status.HTTP_404_NOT_FOUND)
-    #     shortened_url.access_count += 1
-    #     shortened_url.save()
-    #     serializer = self.get_serializer(shortened_url)
-    #     return Response(status=status.HTTP_302_FOUND, headers={'Location': shortened_url.full_address})
-
     def retrieve(self, request, key=None):
         instance = self.get_object()
 
